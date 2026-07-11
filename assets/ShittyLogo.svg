@@ -1,0 +1,18 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+	<style>
+		.s0 { fill: #ab6b7c;stroke: #4f0f32;stroke-miterlimit:10;stroke-width: 12 } 
+		.s1 { fill: #c98496;stroke: #c98496;stroke-miterlimit:10;stroke-width: 12 } 
+		.s2 { fill: #99606f;stroke: #4f0f32;stroke-miterlimit:10;stroke-width: 6 } 
+		.s3 { fill: #ffba00;stroke: #8c5b42;stroke-miterlimit:10;stroke-width: 8 } 
+		.s4 { fill: #d4bb8b;stroke: #8b7b57;stroke-miterlimit:10;stroke-width: 8 } 
+		.s5 { fill: #111111;stroke: #4d4d4d;stroke-miterlimit:10;stroke-width: 5 } 
+	</style>
+	<g id="Layer 1">
+		<path id="Shape 1" fill-rule="evenodd" class="s0" d="m256.38 512.24c-141.36 0-253.88-115.93-253.88-257.29 0-141.36 112.52-253.95 253.88-253.95 141.36 0 255.62 114.26 255.62 255.62 0 141.36-114.26 255.62-255.62 255.62z"/>
+		<path id="Shape 7" fill-rule="evenodd" class="s1" d="m443 413.9l-148 93-233.24-216.38 109.33-205.72 229.44 40.4z"/>
+		<path id="Shape 2 copy" fill-rule="evenodd" class="s2" d="m363.43 486.33"/>
+		<path id="Shape 5" fill-rule="evenodd" class="s3" d="m378 289.9l68 132c5.97 31.74-150.61 98.78-151 84l-78-121z"/>
+		<path id="Shape 4" fill-rule="evenodd" class="s4" d="m150.11 56.8l227.89 232.1c20.58 90.03-150.97 147.13-163.44 90.18z"/>
+		<path id="Shape 6" fill-rule="evenodd" class="s5" d="m144.37 49.01l82.06 83.96c-12.53 34.03-40.74 27.62-61.43 3.93z"/>
+	</g>
+</svg>

@@ -52,6 +52,7 @@ var PromptOptions
 var PromptDisplay = $"Text Prompt/ScrollingPrompt/PromptDisplay"
 
 func _ready():		
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_MAXIMIZE_DISABLED, true)
 	NounStrings = load_paths(NounPath)
 	AdjectiveStrings = load_paths(AdjectivePath)
 	#for key in NounStrings:

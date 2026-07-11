@@ -10,23 +10,30 @@ config_version=5
 
 [application]
 
-config/name="ArtPromptGenerator"
+config/name="ArtPromptGen"
+config/version="1.0"
 run/main_scene="res://scene/control.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="ArtPromptGen"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 run/low_processor_mode=true
-config/icon="res://icon.svg"
+config/icon="res://assets/New Project.png"
+run/stretch/scale_mode="fractional"
+run/stretch/scale=1.0
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
+window/energy_saving/keep_screen_on=false
 window/stretch/aspect="ignore"
 mouse_cursor/custom_image="uid://2in84cty3ems"
 
 [physics]
 
-3d/physics_engine="Jolt Physics"
+2d/physics_engine="Dummy"
+3d/physics_engine="Dummy"
 
 [rendering]
 

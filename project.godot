@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ArtPromptGenerator"
+run/main_scene="res://scene/control.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+run/low_processor_mode=true
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
+window/stretch/aspect="ignore"
+mouse_cursor/custom_image="uid://2in84cty3ems"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

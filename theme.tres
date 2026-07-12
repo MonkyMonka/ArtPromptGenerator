@@ -1,59 +1,52 @@
 [gd_resource type="Theme" format=3 uid="uid://blswgpllmwom1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
-bg_color = Color(0.40392157, 0.36862746, 0.3882353, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 10
-shadow_color = Color(0, 0, 0, 0.44313726)
-shadow_size = 3
-shadow_offset = Vector2(5, 5)
+[ext_resource type="SystemFont" uid="uid://cpjwiveq4soyj" path="res://font.tres" id="1_cjfk0"]
+[ext_resource type="Texture2D" uid="uid://dufbgg6w7u7uv" path="res://assets/arrow.png" id="2_cjfk0"]
+[ext_resource type="Texture2D" uid="uid://kbntc1jenb6d" path="res://assets/GuiCheckedNormal.svg" id="2_vj6dk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
-bg_color = Color(0.51, 0.46409997, 0.48934495, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 10
-shadow_color = Color(0, 0, 0, 0.44313726)
-shadow_size = 3
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
-bg_color = Color(0.42955896, 0.39289665, 0.41325617, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 10
-shadow_color = Color(0, 0, 0, 0.44313726)
-shadow_size = 3
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0pm5"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
-bg_color = Color(0.38275632, 0.3531772, 0.37288064, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 10
-shadow_color = Color(0, 0, 0, 0.44313726)
-shadow_size = 3
-shadow_offset = Vector2(5, 5)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
-bg_color = Color(0.27, 0.27, 0.27, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfk0"]
 
-[sub_resource type="SystemFont" id="SystemFont_wvktn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
+bg_color = Color(0.05490196, 0.03529412, 0.07450981, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
+bg_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
+draw_center = false
+border_width_left = 2
+border_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
 
 [resource]
-default_base_scale = 2.0
-default_font = SubResource("SystemFont_wvktn")
-Button/styles/normal = SubResource("StyleBoxFlat_e1x85")
-CheckBox/styles/hover = SubResource("StyleBoxFlat_cjfk0")
-CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_110ce")
-CheckBox/styles/pressed = SubResource("StyleBoxFlat_vj6dk")
-TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_wvktn")
+Button/fonts/font = ExtResource("1_cjfk0")
+Button/styles/normal = SubResource("StyleBoxFlat_p0pm5")
+Button/styles/pressed = SubResource("StyleBoxFlat_vj6dk")
+CheckBox/colors/checkbox_unchecked_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
+CheckBox/colors/font_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
+CheckBox/icons/unchecked = ExtResource("2_vj6dk")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_cjfk0")
+OptionButton/colors/font_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
+OptionButton/colors/font_disabled_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
+OptionButton/colors/icon_normal_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
+OptionButton/constants/arrow_margin = 13
+OptionButton/constants/line_spacing = 0
+OptionButton/font_sizes/font_size = 20
+OptionButton/fonts/font = ExtResource("1_cjfk0")
+OptionButton/icons/arrow = ExtResource("2_cjfk0")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_p0pm5")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_cjfk0")
+VSeparator/styles/separator = SubResource("StyleBoxFlat_110ce")

@@ -23,8 +23,8 @@ run/stretch/scale=1.0
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=875
+window/size/viewport_height=750
 window/size/resizable=false
 window/energy_saving/keep_screen_on=false
 window/stretch/aspect="ignore"
@@ -37,6 +37,7 @@ mouse_cursor/custom_image="uid://2in84cty3ems"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

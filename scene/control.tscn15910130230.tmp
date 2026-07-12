@@ -1,0 +1,363 @@
+[gd_scene format=3 uid="uid://n18ct5hmt8dx"]
+
+[ext_resource type="Theme" uid="uid://blswgpllmwom1" path="res://theme.tres" id="1_mnow5"]
+[ext_resource type="Script" uid="uid://bh4yq4xngcrjt" path="res://script/FileLoader.gd" id="2_8g54p"]
+[ext_resource type="Texture2D" uid="uid://bmpds3erxx50n" path="res://icon.svg" id="2_mnow5"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_j0f1v"]
+thickness = 34
+
+[sub_resource type="Theme" id="Theme_p0pm5"]
+HSeparator/styles/separator = SubResource("StyleBoxLine_j0f1v")
+
+[sub_resource type="Theme" id="Theme_1pgdv"]
+
+[sub_resource type="Theme" id="Theme_ci40l"]
+
+[sub_resource type="Theme" id="Theme_j0f1v"]
+OptionButton/constants/line_spacing = 0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8g54p"]
+color = Color(0.6872149, 0.68721503, 0.6872149, 1)
+thickness = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f676y"]
+bg_color = Color(0.37906262, 0.3573048, 0.42949414, 1)
+
+[sub_resource type="Theme" id="Theme_f676y"]
+HSeparator/styles/separator = SubResource("StyleBoxLine_8g54p")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_f676y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_f676y"]
+line_spacing = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8g54p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0f1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0pm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1pgdv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ci40l"]
+
+[sub_resource type="Theme" id="Theme_l36yk"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_8g54p")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_j0f1v")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_p0pm5")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_1pgdv")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ci40l")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l36yk"]
+
+[sub_resource type="Theme" id="Theme_8g54p"]
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_l36yk")
+VBoxContainer/constants/separation = 14
+
+[node name="PromptGen" type="Control" unique_id=1615310042]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(687, 347)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_mnow5")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1870710496]
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1856461868]
+layout_mode = 0
+offset_right = 1388.0
+offset_bottom = 720.0
+theme = ExtResource("1_mnow5")
+current_tab = 0
+script = ExtResource("2_8g54p")
+
+[node name="Text Prompt" type="Control" parent="TabContainer" unique_id=1520907752]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Background" type="ColorRect" parent="TabContainer/Text Prompt" unique_id=128020790]
+layout_mode = 0
+offset_right = 1388.0
+offset_bottom = 689.0
+color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+
+[node name="Seperators" type="Control" parent="TabContainer/Text Prompt" unique_id=1499759884]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="seperator3" type="VSeparator" parent="TabContainer/Text Prompt/Seperators" unique_id=1486080668]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 134.0
+offset_right = 472.0
+offset_bottom = 491.0
+mouse_filter = 2
+theme = SubResource("Theme_p0pm5")
+
+[node name="seperator2" type="HSeparator" parent="TabContainer/Text Prompt/Seperators" unique_id=1968637912]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 449.0
+offset_right = 846.0
+offset_bottom = 563.0
+mouse_filter = 2
+theme = SubResource("Theme_1pgdv")
+
+[node name="seperator" type="HSeparator" parent="TabContainer/Text Prompt/Seperators" unique_id=724619260]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 77.0
+offset_right = 870.0
+offset_bottom = 191.0
+mouse_filter = 2
+theme = SubResource("Theme_ci40l")
+
+[node name="PromptButtons" type="Control" parent="TabContainer/Text Prompt" unique_id=1336150733]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PromptButton" type="Button" parent="TabContainer/Text Prompt/PromptButtons" unique_id=1334443680]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 541.0
+offset_right = 846.0
+offset_bottom = 637.0
+text = "Generate Prompt"
+
+[node name="ClearPromptButton" type="Button" parent="TabContainer/Text Prompt/PromptButtons" unique_id=1974225364]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 430.0
+offset_right = 1092.0
+offset_bottom = 468.0
+text = "Clear Prompts"
+
+[node name="PromptOptions" type="OptionButton" parent="TabContainer/Text Prompt/PromptButtons" unique_id=188894259]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 40.0
+offset_right = 815.0
+offset_bottom = 105.0
+theme = SubResource("Theme_j0f1v")
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "Noun"
+popup/item_0/id = 0
+popup/item_1/text = " Noun + Noun"
+popup/item_1/id = 1
+popup/item_2/text = "Adjective + Noun"
+popup/item_2/id = 2
+popup/item_3/text = "Adjective + Noun + Noun"
+popup/item_3/id = 3
+popup/item_4/text = "Adjective + Adjective + Noun"
+popup/item_4/id = 4
+
+[node name="ScrollingPrompt" type="ScrollContainer" parent="TabContainer/Text Prompt" unique_id=773140045]
+z_index = 1
+layout_mode = 0
+offset_left = 881.0
+offset_top = 40.0
+offset_right = 1248.0
+offset_bottom = 409.0
+theme = SubResource("Theme_f676y")
+
+[node name="PromptDisplay" type="Label" parent="TabContainer/Text Prompt/ScrollingPrompt" unique_id=979277471]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_f676y")
+
+[node name="NounStuff" type="Control" parent="TabContainer/Text Prompt" unique_id=573457489]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NounLabel" type="Label" parent="TabContainer/Text Prompt/NounStuff" unique_id=358890061]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 150.0
+offset_right = 430.0
+offset_bottom = 173.0
+text = "Nouns"
+
+[node name="NounScroll" type="ScrollContainer" parent="TabContainer/Text Prompt/NounStuff" unique_id=1738554524]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 178.0
+offset_right = 390.0
+offset_bottom = 482.0
+theme = SubResource("Theme_l36yk")
+
+[node name="NounList" type="VBoxContainer" parent="TabContainer/Text Prompt/NounStuff/NounScroll" unique_id=869494103]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Animals" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=578863275]
+layout_mode = 2
+text = "Animals                                           "
+
+[node name="Bodyparts" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1579982051]
+layout_mode = 2
+text = "Bodyparts
+"
+metadata/_edit_lock_ = true
+
+[node name="Creatures" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=130223295]
+layout_mode = 2
+text = "Creatures"
+metadata/_edit_lock_ = true
+
+[node name="Foods" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=719244996]
+layout_mode = 2
+text = "Foods
+"
+metadata/_edit_lock_ = true
+
+[node name="Furniture" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1454938596]
+layout_mode = 2
+text = "Furniture"
+metadata/_edit_lock_ = true
+
+[node name="Objects" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=56114337]
+layout_mode = 2
+text = "Objects"
+metadata/_edit_lock_ = true
+
+[node name="Places" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1900498264]
+layout_mode = 2
+text = "Places"
+metadata/_edit_lock_ = true
+
+[node name="Plants" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1391895683]
+layout_mode = 2
+text = "Plants"
+metadata/_edit_lock_ = true
+
+[node name="Professions" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=330168096]
+layout_mode = 2
+text = "Professions"
+metadata/_edit_lock_ = true
+
+[node name="Tools" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=134905423]
+layout_mode = 2
+text = "Tools"
+metadata/_edit_lock_ = true
+
+[node name="Vehicles" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1130815074]
+layout_mode = 2
+text = "Vehicles
+"
+metadata/_edit_lock_ = true
+
+[node name="Weapons" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=2038169867]
+layout_mode = 2
+action_mode = 0
+text = "Weapons
+"
+
+[node name="AdjectiveStuff" type="Control" parent="TabContainer/Text Prompt" unique_id=1245462558]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(1107, 672)
+
+[node name="AdjectivesLabel" type="Label" parent="TabContainer/Text Prompt/AdjectiveStuff" unique_id=255343713]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 150.0
+offset_right = 766.0
+offset_bottom = 173.0
+text = "Adjectives"
+
+[node name="AdjectiveScroll" type="ScrollContainer" parent="TabContainer/Text Prompt/AdjectiveStuff" unique_id=887213819]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 178.0
+offset_right = 769.0
+offset_bottom = 482.0
+theme = SubResource("Theme_l36yk")
+
+[node name="AdjectiveList" type="VBoxContainer" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll" unique_id=1390435522]
+layout_mode = 2
+size_flags_stretch_ratio = 0.17
+theme = SubResource("Theme_8g54p")
+alignment = 1
+
+[node name="Ages" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=733353377]
+layout_mode = 2
+theme = ExtResource("1_mnow5")
+disabled = true
+text = "Ages                                                 "
+metadata/_edit_lock_ = true
+
+[node name="Colors" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=220024198]
+layout_mode = 2
+theme = ExtResource("1_mnow5")
+disabled = true
+text = "Colors"
+metadata/_edit_lock_ = true
+
+[node name="Features" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=1622921134]
+layout_mode = 2
+theme = ExtResource("1_mnow5")
+disabled = true
+text = "Features"
+metadata/_edit_lock_ = true
+
+[node name="Materials" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=1464174395]
+layout_mode = 2
+theme = ExtResource("1_mnow5")
+disabled = true
+text = "Materials"
+metadata/_edit_lock_ = true
+
+[node name="Qualities" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=655281215]
+layout_mode = 2
+theme = ExtResource("1_mnow5")
+disabled = true
+text = "Qualities"
+metadata/_edit_lock_ = true
+
+[node name="Traits" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=832194344]
+layout_mode = 2
+theme = ExtResource("1_mnow5")
+disabled = true
+text = "Traits
+"
+metadata/_edit_lock_ = true
+
+[node name="LinkButton" type="LinkButton" parent="TabContainer/Text Prompt" unique_id=2125514798]
+layout_mode = 0
+offset_left = 926.924
+offset_top = 666.78186
+offset_right = 1432.5247
+offset_bottom = 698.5679
+rotation = -0.027925268
+scale = Vector2(0.59, 0.59)
+pivot_offset = Vector2(-95.07373, -326.38263)
+text = "https://en.wikipedia.org/wiki/George_(given_name)"
+
+[node name="Placeholder Image" type="TextureRect" parent="TabContainer/Text Prompt" unique_id=1913776986]
+layout_mode = 0
+offset_left = 1172.0
+offset_top = 582.0
+offset_right = 1269.0
+offset_bottom = 672.0
+texture = ExtResource("2_mnow5")
+expand_mode = 1
+
+[connection signal="request_completed" from="HTTPRequest" to="TabContainer" method="_on_http_request_request_completed"]
+[connection signal="pressed" from="TabContainer/Text Prompt/PromptButtons/PromptButton" to="TabContainer" method="_on_prompt_button_pressed"]
+[connection signal="pressed" from="TabContainer/Text Prompt/PromptButtons/ClearPromptButton" to="TabContainer" method="_on_clear_prompt_button_pressed"]

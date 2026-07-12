@@ -51,12 +51,34 @@ var PromptOptions
 @onready
 var PromptDisplay = $"Text Prompt/ScrollingPrompt/PromptDisplay"
 
-func _ready():		
+func _ready():
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_MAXIMIZE_DISABLED, true)
 	NounStrings = load_paths(NounPath)
 	AdjectiveStrings = load_paths(AdjectivePath)
 	#for key in NounStrings:
 	#	PromptDisplay.text += key + "," + NounStrings[key] + "\n"
+
+func _on_http_request_request_completed(result, response_code, headers, body):
+		var image = Image.new()
+		var error = image.load_png_from_buffer(body)
+		if error != OK:
+			var json = JSON.parse_string(body.get_string_from_utf8())
+			var pages = json['query']['pages']
+			for page_id in pages.keys():
+				print(pages[page_id].original['source'])
+				$"../HTTPRequest".request(pages[page_id].original['source'])
+	
+		#var img = Image.new()
+		#img.load_png_from_buffer(body)
+		#var img_texture: ImageTexture = ImageTexture.create_from_image(img)
+		#$"Text Prompt/Placeholder Image".texture = img_texture
+		
+#https://en.wikipedia.org/wiki/Romanesco_broccoli
+
+#var wikipedia_prefix = "https://en.wikipedia.org/wiki/"
+
+#var search_endpoint = "https://" + lang + ".wikipedia.org/w/api.php?action=query&format=json&list=search&srprop=title&origin=*&srsearch="
+#var random_endpoint = "https://" + lang + ".wikipedia.org/w/api.php?action=query&format=json&generator=random&grnnamespace=0&prop=info&origin=*"
 
 func _process(_delta):
 	PromptOptions = $"Text Prompt/PromptButtons/PromptOptions".get_selected_id() 
@@ -122,6 +144,9 @@ func get_word(string):
 	return word
 
 func _on_prompt_button_pressed():
+	var holder;
+	var wikipedia_prefix = "https://en.wikipedia.org/wiki/"
+	var wikipedia_image_prefix = "http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles="
 	var nounString = PackedStringArray()
 	#region NounToggles	
 	if (AnimalToggle) :
@@ -169,7 +194,12 @@ func _on_prompt_button_pressed():
 	if ((PromptOptions == 1) && !nounString.is_empty()) :
 		PromptDisplay.text += get_word(nounString) + "" + get_word(nounString) + "\n"
 	elif (!nounString.is_empty() && !(PromptOptions >= 2) ):
-		PromptDisplay.text += get_word(nounString) + "\n"
+		holder = get_word(nounString)
+		PromptDisplay.text += holder + "\n"
+		holder = holder.right(-1)
+		$"../HTTPRequest".request(wikipedia_image_prefix + holder)
+		$"Text Prompt/LinkButton".text = wikipedia_prefix + holder
+		$"Text Prompt/LinkButton".uri = wikipedia_prefix + holder
 	elif (nounString.is_empty()):
 		PromptDisplay.text += " No Nouns Selected!\n"
 	elif ((PromptOptions == 2) && !adjectiveString.is_empty() ) :
@@ -182,6 +212,8 @@ func _on_prompt_button_pressed():
 		PromptDisplay.text += " No Adjectives Selected!\n"
 	else :
 		PromptDisplay.text += " Error!\n"
+		
+		
 
 func _on_clear_prompt_button_pressed():
 	PromptDisplay.set_text("")

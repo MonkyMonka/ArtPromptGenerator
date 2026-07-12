@@ -67,6 +67,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_mnow5")
 
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1870710496]
+
 [node name="TabContainer" type="TabContainer" parent="." unique_id=1856461868]
 layout_mode = 0
 offset_right = 1388.0
@@ -269,6 +271,7 @@ text = "Weapons
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+pivot_offset = Vector2(1107, 672)
 
 [node name="AdjectivesLabel" type="Label" parent="TabContainer/Text Prompt/AdjectiveStuff" unique_id=255343713]
 layout_mode = 0
@@ -337,14 +340,14 @@ metadata/_edit_lock_ = true
 
 [node name="LinkButton" type="LinkButton" parent="TabContainer/Text Prompt" unique_id=2125514798]
 layout_mode = 0
-offset_left = 936.0
-offset_top = 664.00006
-offset_right = 1441.6006
-offset_bottom = 695.7861
+offset_left = 926.924
+offset_top = 666.78186
+offset_right = 1432.5247
+offset_bottom = 698.5679
 rotation = -0.027925268
 scale = Vector2(0.59, 0.59)
+pivot_offset = Vector2(-95.07373, -326.38263)
 text = "https://en.wikipedia.org/wiki/George_(given_name)"
-text_overrun_behavior = 3
 
 [node name="Placeholder Image" type="TextureRect" parent="TabContainer/Text Prompt" unique_id=1913776986]
 layout_mode = 0
@@ -352,8 +355,10 @@ offset_left = 1172.0
 offset_top = 582.0
 offset_right = 1269.0
 offset_bottom = 672.0
+pivot_offset = Vector2(52, 45)
 texture = ExtResource("2_mnow5")
 expand_mode = 1
 
+[connection signal="request_completed" from="HTTPRequest" to="TabContainer" method="_on_http_request_request_completed"]
 [connection signal="pressed" from="TabContainer/Text Prompt/PromptButtons/PromptButton" to="TabContainer" method="_on_prompt_button_pressed"]
 [connection signal="pressed" from="TabContainer/Text Prompt/PromptButtons/ClearPromptButton" to="TabContainer" method="_on_clear_prompt_button_pressed"]

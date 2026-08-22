@@ -2,7 +2,6 @@
 
 [ext_resource type="SystemFont" uid="uid://cpjwiveq4soyj" path="res://font.tres" id="1_cjfk0"]
 [ext_resource type="Texture2D" uid="uid://dufbgg6w7u7uv" path="res://assets/arrow.png" id="2_cjfk0"]
-[ext_resource type="Texture2D" uid="uid://kbntc1jenb6d" path="res://assets/GuiCheckedNormal.svg" id="2_vj6dk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0pm5"]
 draw_center = false
@@ -20,7 +19,30 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vj6dk"]
+load_path = "res://.godot/imported/GuiCheckedNormal.svg-8200a157028c923bd6f90e29360a2b28.ctex"
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfk0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vj6dk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_110ce"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
+bg_color = Color(0.05490196, 0.03529412, 0.07450981, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rmny"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 bg_color = Color(0.05490196, 0.03529412, 0.07450981, 1)
@@ -32,13 +54,27 @@ border_width_left = 2
 border_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
 
 [resource]
+Button/colors/font_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
+Button/font_sizes/font_size = 17
 Button/fonts/font = ExtResource("1_cjfk0")
 Button/styles/normal = SubResource("StyleBoxFlat_p0pm5")
 Button/styles/pressed = SubResource("StyleBoxFlat_vj6dk")
+CheckBox/colors/checkbox_checked_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 CheckBox/colors/checkbox_unchecked_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
+CheckBox/colors/checkbox_unchecked_disabled_color = Color(0.5058824, 0.5019608, 0.5137255, 1)
 CheckBox/colors/font_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
-CheckBox/icons/unchecked = ExtResource("2_vj6dk")
+CheckBox/constants/h_separation = 5
+CheckBox/icons/unchecked = SubResource("CompressedTexture2D_vj6dk")
 CheckBox/styles/normal = SubResource("StyleBoxEmpty_cjfk0")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_vj6dk")
+Label/colors/font_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
+Label/fonts/font = ExtResource("1_cjfk0")
+ListScroll/base_type = &"ScrollContainer"
+ListScroll/styles/panel = SubResource("StyleBoxEmpty_110ce")
+MarginContainer/constants/margin_bottom = 31
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 8
 OptionButton/colors/font_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
 OptionButton/colors/font_disabled_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
 OptionButton/colors/icon_normal_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
@@ -48,5 +84,10 @@ OptionButton/font_sizes/font_size = 20
 OptionButton/fonts/font = ExtResource("1_cjfk0")
 OptionButton/icons/arrow = ExtResource("2_cjfk0")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_p0pm5")
+PopupMenu/colors/font_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
+PopupMenu/fonts/font = ExtResource("1_cjfk0")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_05tig")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_1rmny")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_cjfk0")
+VBoxContainer/constants/separation = 5
 VSeparator/styles/separator = SubResource("StyleBoxFlat_110ce")

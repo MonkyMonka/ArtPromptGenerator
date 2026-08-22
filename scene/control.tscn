@@ -4,14 +4,31 @@
 [ext_resource type="Script" uid="uid://bh4yq4xngcrjt" path="res://script/FileLoader.gd" id="2_8g54p"]
 [ext_resource type="Texture2D" uid="uid://cksqh2qir6s8q" path="res://assets/promptgenuiconcept_png.png" id="2_j0f1v"]
 [ext_resource type="SystemFont" uid="uid://cpjwiveq4soyj" path="res://font.tres" id="4_1pgdv"]
+[ext_resource type="Texture2D" uid="uid://cqtw2endtje5t" path="res://assets/checkbox.png" id="4_ci40l"]
 [ext_resource type="Texture2D" uid="uid://bu3v1uuaac7io" path="res://assets/imageholder.png" id="4_p0pm5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g54p"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
+
+[sub_resource type="Theme" id="Theme_p0pm5"]
+Panel/styles/panel = SubResource("StyleBoxFlat_8g54p")
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_8g54p"]
 color = Color(0.6872149, 0.68721503, 0.6872149, 1)
 thickness = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f676y"]
-bg_color = Color(0.37906262, 0.3573048, 0.42949414, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
 
 [sub_resource type="Theme" id="Theme_f676y"]
 HSeparator/styles/separator = SubResource("StyleBoxLine_8g54p")
@@ -25,22 +42,13 @@ Label/colors/font_color = Color(0.8509804, 0.6039216, 0.8745098, 1)
 Label/font_sizes/font_size = 19
 Label/fonts/font = ExtResource("4_1pgdv")
 
+[sub_resource type="Theme" id="Theme_j0f1v"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l36yk"]
 
 [sub_resource type="Theme" id="Theme_8g54p"]
 CheckButton/styles/disabled = SubResource("StyleBoxEmpty_l36yk")
 VBoxContainer/constants/separation = 14
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g54p"]
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.4509804, 0.32156864, 0.4745098, 1)
-
-[sub_resource type="Theme" id="Theme_p0pm5"]
-Panel/styles/panel = SubResource("StyleBoxFlat_8g54p")
 
 [node name="PromptGen" type="Control" unique_id=1615310042]
 custom_minimum_size = Vector2(875, 750)
@@ -77,18 +85,50 @@ script = ExtResource("2_8g54p")
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="Decorations" type="Control" parent="TabContainer/Text Prompt" unique_id=797321921]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel3" type="Panel" parent="TabContainer/Text Prompt/Decorations" unique_id=816971998]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 375.0
+offset_bottom = 725.0
+theme = SubResource("Theme_p0pm5")
+metadata/_edit_lock_ = true
+
+[node name="Panel2" type="Panel" parent="TabContainer/Text Prompt/Decorations" unique_id=14620292]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 468.0
+offset_right = 851.0
+offset_bottom = 726.0
+theme = SubResource("Theme_p0pm5")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="TabContainer/Text Prompt/Decorations" unique_id=714056199]
+visible = false
+layout_mode = 0
+offset_left = 424.0
+offset_top = 25.0
+offset_right = 851.0
+offset_bottom = 452.0
+theme = SubResource("Theme_p0pm5")
+metadata/_edit_lock_ = true
+
 [node name="Seperators" type="Control" parent="TabContainer/Text Prompt" unique_id=1499759884]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-metadata/_edit_lock_ = true
 
 [node name="VSeparator" type="VSeparator" parent="TabContainer/Text Prompt/Seperators" unique_id=491417746]
 layout_mode = 0
-offset_left = 397.0
+offset_left = 398.0
 offset_top = 25.0
-offset_right = 401.0
+offset_right = 402.0
 offset_bottom = 726.0
 theme = ExtResource("1_mnow5")
 
@@ -99,20 +139,22 @@ offset_bottom = 40.0
 
 [node name="PromptButton" type="Button" parent="TabContainer/Text Prompt/PromptButtons" unique_id=1334443680]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 651.0
-offset_right = 370.0
-offset_bottom = 710.0
+offset_left = 35.0
+offset_top = 669.0
+offset_right = 314.0
+offset_bottom = 715.0
 pivot_offset = Vector2(-155, -391)
-text = "Generate Prompt"
+theme = ExtResource("1_mnow5")
+text = "generate prompt"
 
 [node name="ClearPromptButton" type="Button" parent="TabContainer/Text Prompt/PromptButtons" unique_id=1974225364]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 701.0
-offset_right = 30.0
-offset_bottom = 739.0
-text = "T"
+offset_left = 318.0
+offset_top = 669.0
+offset_right = 366.0
+offset_bottom = 715.0
+icon = ExtResource("4_ci40l")
+icon_alignment = 1
 
 [node name="PromptOptions" type="OptionButton" parent="TabContainer/Text Prompt/PromptButtons" unique_id=188894259]
 layout_mode = 0
@@ -139,29 +181,37 @@ popup/item_4/id = 4
 z_index = 1
 layout_mode = 0
 offset_left = 435.0
-offset_top = 480.0
-offset_right = 841.0
-offset_bottom = 623.0
-theme = SubResource("Theme_f676y")
+offset_top = 479.0
+offset_right = 840.0
+offset_bottom = 658.0
+theme = ExtResource("1_mnow5")
+horizontal_scroll_mode = 0
 
-[node name="PromptDisplay" type="Label" parent="TabContainer/Text Prompt/ScrollingPrompt" unique_id=979277471]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Text Prompt/ScrollingPrompt" unique_id=326067968]
+clip_contents = true
 layout_mode = 2
-label_settings = SubResource("LabelSettings_f676y")
-metadata/_edit_lock_ = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_mnow5")
+
+[node name="PromptDisplay" type="Label" parent="TabContainer/Text Prompt/ScrollingPrompt/MarginContainer" unique_id=979277471]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_mnow5")
 
 [node name="RecentPrompt" type="ScrollContainer" parent="TabContainer/Text Prompt" unique_id=845370199]
 z_index = 1
 layout_mode = 0
-offset_left = 431.0
-offset_top = 651.0
-offset_right = 837.0
-offset_bottom = 710.0
+offset_left = 435.0
+offset_top = 669.0
+offset_right = 840.0
+offset_bottom = 715.0
 theme = SubResource("Theme_f676y")
 
 [node name="RecentPromptDisplay" type="Label" parent="TabContainer/Text Prompt/RecentPrompt" unique_id=1232311983]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_f676y")
-metadata/_edit_lock_ = true
+vertical_alignment = 1
 
 [node name="NounStuff" type="Control" parent="TabContainer/Text Prompt" unique_id=573457489]
 anchors_preset = 0
@@ -183,14 +233,16 @@ layout_mode = 0
 offset_left = 35.0
 offset_top = 130.0
 offset_right = 367.0
-offset_bottom = 355.0
+offset_bottom = 358.0
 theme = ExtResource("1_mnow5")
+theme_type_variation = &"ListScroll"
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="NounList" type="VBoxContainer" parent="TabContainer/Text Prompt/NounStuff/NounScroll" unique_id=869494103]
 z_index = 1
 layout_mode = 2
+theme = SubResource("Theme_j0f1v")
 alignment = 1
 metadata/_edit_lock_ = true
 
@@ -198,69 +250,78 @@ metadata/_edit_lock_ = true
 layout_direction = 3
 layout_mode = 2
 theme = ExtResource("1_mnow5")
-text = "// Animals . . . . . . . . . . . . . . . ."
+text = "// ANIMALS . . . . . . . . . . . . . . . . "
+alignment = 2
 icon_alignment = 2
-metadata/_edit_lock_ = true
 
 [node name="Bodyparts" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1579982051]
+layout_direction = 3
 layout_mode = 2
-text = "Bodyparts
+text = "// BODYPARTS . . . . . . . . . . . . . . .
 "
-metadata/_edit_lock_ = true
+alignment = 2
 
 [node name="Creatures" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=130223295]
+layout_direction = 3
 layout_mode = 2
-text = "Creatures"
-metadata/_edit_lock_ = true
+text = "// CREATURES . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Foods" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=719244996]
+layout_direction = 3
 layout_mode = 2
-text = "Foods
+text = "// FOODS . . . . . . . . . . . . . . . . . 
 "
-metadata/_edit_lock_ = true
+alignment = 2
 
 [node name="Furniture" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1454938596]
+layout_direction = 3
 layout_mode = 2
-text = "Furniture"
-metadata/_edit_lock_ = true
+text = "// FURNITURE . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Objects" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=56114337]
+layout_direction = 3
 layout_mode = 2
-text = "Objects"
-metadata/_edit_lock_ = true
+text = "// OBJECTS . . . . . . . . . . . . . . . . "
+alignment = 2
 
 [node name="Places" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1900498264]
+layout_direction = 3
 layout_mode = 2
-text = "Places"
-metadata/_edit_lock_ = true
+text = "// PLACES. . . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Plants" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1391895683]
+layout_direction = 3
 layout_mode = 2
-text = "Plants"
-metadata/_edit_lock_ = true
+text = "// PLANTS. . . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Professions" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=330168096]
+layout_direction = 3
 layout_mode = 2
-text = "Professions"
-metadata/_edit_lock_ = true
+text = "// PROFESSIONS . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Tools" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=134905423]
+layout_direction = 3
 layout_mode = 2
-text = "Tools"
-metadata/_edit_lock_ = true
+text = "// TOOLS . . . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Vehicles" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=1130815074]
+layout_direction = 3
 layout_mode = 2
-text = "Vehicles
-"
-metadata/_edit_lock_ = true
+text = "// VEHICLES. . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Weapons" type="CheckBox" parent="TabContainer/Text Prompt/NounStuff/NounScroll/NounList" unique_id=2038169867]
+layout_direction = 3
 layout_mode = 2
 action_mode = 0
-text = "Weapons
-"
-metadata/_edit_lock_ = true
+text = "// WEAPONS . . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="AdjectiveStuff" type="Control" parent="TabContainer/Text Prompt" unique_id=1245462558]
 anchors_preset = 0
@@ -281,10 +342,11 @@ horizontal_alignment = 3
 [node name="AdjectiveScroll" type="ScrollContainer" parent="TabContainer/Text Prompt/AdjectiveStuff" unique_id=887213819]
 layout_mode = 0
 offset_left = 35.0
-offset_top = 420.0
-offset_right = 371.0
-offset_bottom = 631.0
+offset_top = 418.0
+offset_right = 367.0
+offset_bottom = 637.0
 theme = ExtResource("1_mnow5")
+theme_type_variation = &"ListScroll"
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -293,79 +355,57 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.17
 theme = SubResource("Theme_8g54p")
 alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="Ages" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=733353377]
+layout_direction = 3
 layout_mode = 2
 theme = ExtResource("1_mnow5")
 disabled = true
-text = "Ages                                                 "
-metadata/_edit_lock_ = true
+text = "// AGES. . . . . . . . . . . . . . . . . . "
+alignment = 2
 
 [node name="Colors" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=220024198]
+layout_direction = 3
 layout_mode = 2
 theme = ExtResource("1_mnow5")
 disabled = true
-text = "Colors"
-metadata/_edit_lock_ = true
+text = "// COLORS. . . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Features" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=1622921134]
+layout_direction = 3
 layout_mode = 2
 theme = ExtResource("1_mnow5")
 disabled = true
-text = "Features"
-metadata/_edit_lock_ = true
+text = "// FEATURES. . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Materials" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=1464174395]
+layout_direction = 3
 layout_mode = 2
 theme = ExtResource("1_mnow5")
 disabled = true
-text = "Materials"
-metadata/_edit_lock_ = true
+text = "// MATERIALS . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Qualities" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=655281215]
+layout_direction = 3
 layout_mode = 2
 theme = ExtResource("1_mnow5")
 disabled = true
-text = "Qualities"
-metadata/_edit_lock_ = true
+text = "// QUALITIES . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Traits" type="CheckBox" parent="TabContainer/Text Prompt/AdjectiveStuff/AdjectiveScroll/AdjectiveList" unique_id=832194344]
+layout_direction = 3
 layout_mode = 2
 theme = ExtResource("1_mnow5")
 disabled = true
-text = "Traits
-"
-metadata/_edit_lock_ = true
-
-[node name="LinkButton" type="LinkButton" parent="TabContainer/Text Prompt" unique_id=2125514798]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 512.00006
-offset_right = 1013.4789
-offset_bottom = 552.14703
-rotation = -0.027925268
-scale = Vector2(0.59, 0.59)
-pivot_offset = Vector2(-95.07373, -326.38263)
-text = "https://en.wikipedia.org/wiki/George_(given_name)"
-
-[node name="Panel" type="Panel" parent="TabContainer/Text Prompt" unique_id=714056199]
-layout_mode = 0
-offset_left = 424.0
-offset_top = 25.0
-offset_right = 851.0
-offset_bottom = 452.0
-theme = SubResource("Theme_p0pm5")
-
-[node name="Panel2" type="Panel" parent="TabContainer/Text Prompt" unique_id=14620292]
-layout_mode = 0
-offset_left = 424.0
-offset_top = 468.0
-offset_right = 851.0
-offset_bottom = 726.0
-theme = SubResource("Theme_p0pm5")
+text = "// TRAITS. . . . . . . . . . . . . . . . ."
+alignment = 2
 
 [node name="Placeholder Image" type="TextureRect" parent="TabContainer/Text Prompt" unique_id=1913776986]
+visible = false
 layout_mode = 0
 offset_left = 435.0
 offset_top = 35.0
@@ -373,6 +413,17 @@ offset_right = 840.0
 offset_bottom = 440.0
 pivot_offset = Vector2(52, 45)
 texture = ExtResource("4_p0pm5")
+
+[node name="LinkButton" type="LinkButton" parent="TabContainer/Text Prompt" unique_id=2125514798]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 535.00006
+offset_right = 1013.4789
+offset_bottom = 575.14703
+rotation = -0.027925268
+scale = Vector2(0.59, 0.59)
+pivot_offset = Vector2(-95.07373, -326.38263)
+text = "https://en.wikipedia.org/wiki/George_(given_name)"
 
 [connection signal="request_completed" from="HTTPRequest" to="TabContainer" method="_on_http_request_request_completed"]
 [connection signal="pressed" from="TabContainer/Text Prompt/PromptButtons/PromptButton" to="TabContainer" method="_on_prompt_button_pressed"]

@@ -51,8 +51,11 @@ var buttonFlag
 @onready
 var PromptOptions
 @onready
-var PromptDisplay = $"Text Prompt/ScrollingPrompt/PromptDisplay"
+var PromptDisplay = $"Text Prompt/ScrollingPrompt/MarginContainer/PromptDisplay"
+@onready
+var RecentPrompt = $"Text Prompt/RecentPrompt/RecentPromptDisplay"
 
+var LastPrompt
 func _ready():
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_MAXIMIZE_DISABLED, true)
 	NounStrings = load_paths(NounPath)
@@ -154,6 +157,8 @@ func get_word(string):
 	return word
 
 func _on_prompt_button_pressed():
+	if (LastPrompt != null) :
+		PromptDisplay.text += LastPrompt + "\n"
 	var holder;
 	var wikipedia_prefix = "https://en.wikipedia.org/wiki/"
 	var wikipedia_image_prefix = "http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles="
@@ -202,26 +207,27 @@ func _on_prompt_button_pressed():
 	#endregion
 
 	if ((PromptOptions == 1) && !nounString.is_empty()) :
-		PromptDisplay.text += get_word(nounString) + "" + get_word(nounString) + "\n"
+		RecentPrompt.text = get_word(nounString) + "" + get_word(nounString)
 	elif (!nounString.is_empty() && !(PromptOptions >= 2) ):
 		holder = get_word(nounString)
-		PromptDisplay.text += holder + "\n"
+		RecentPrompt.text = holder
 		holder = holder.right(-1).replace(" ", "_")
-		$"../HTTPRequest".request(wikipedia_image_prefix + holder)
+		#$"../HTTPRequest".request(wikipedia_image_prefix + holder)
 		$"Text Prompt/LinkButton".text = wikipedia_prefix + holder
 		$"Text Prompt/LinkButton".uri = wikipedia_prefix + holder
 	elif (nounString.is_empty()):
-		PromptDisplay.text += " No Nouns Selected!\n"
+		RecentPrompt.text = " No Nouns Selected!"
 	elif ((PromptOptions == 2) && !adjectiveString.is_empty() ) :
-		PromptDisplay.text += get_word(adjectiveString) + "" + get_word(nounString) + "\n"
+		RecentPrompt.text = get_word(adjectiveString) + "" + get_word(nounString)
 	elif ((PromptOptions == 3) && !adjectiveString.is_empty() ) :
-		PromptDisplay.text += get_word(adjectiveString) + "" + get_word(nounString) + get_word(nounString) + "\n"
+		RecentPrompt.text = get_word(adjectiveString) + "" + get_word(nounString) + get_word(nounString)
 	elif ((PromptOptions == 4) && !adjectiveString.is_empty() ) :
-		PromptDisplay.text += get_word(adjectiveString) + "," + get_word(adjectiveString) + "" + get_word(nounString) + "\n"
+		RecentPrompt.text = get_word(adjectiveString) + "," + get_word(adjectiveString) + "" + get_word(nounString)
 	elif ((PromptOptions >= 2) && adjectiveString.is_empty()) :
-		PromptDisplay.text += " No Adjectives Selected!\n"
+		RecentPrompt.text = " No Adjectives Selected!"
 	else :
-		PromptDisplay.text += " Error!\n"
+		RecentPrompt.text = " Error!"
+	LastPrompt = RecentPrompt.text
 
 func _on_clear_prompt_button_pressed():
 	PromptDisplay.set_text("")
